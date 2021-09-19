@@ -1,21 +1,41 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { useState } from 'react';
+import { StatusBar } from 'react-native';
+import AppLoading from 'expo-app-loading';
 
-export default function App() {
+import useFonts from './src/hooks/useFonts';
+
+import colors from './src/res/colors';
+
+import Navigation from './Navigation';
+
+import FilmState from './src/context/Film/FilmState';
+
+const App = () => {
+
+  const [isReady, setIsReady] = useState(false);
+
+  const loadedFonts = async() => {
+    await useFonts();
+  }
+
+  if (!isReady) {
+    return (
+      <AppLoading
+        startAsync={loadedFonts}
+        onFinish={() => setIsReady(true)}
+        onError={() => {
+          return null;
+        }}
+      />
+     );
+  }
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <FilmState>
+      <Navigation/>
+      <StatusBar backgroundColor={colors.red} />
+    </FilmState>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default App;

@@ -1,14 +1,14 @@
 {
   "expo": {
-    "name": "filmx-app",
-    "slug": "filmx-app",
+    "name": "Filmx",
+    "slug": "filmx",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./src/assets/filmx-icon.png",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./src/assets/filmx-splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#000000"
     },
     "updates": {
       "fallbackToCacheTimeout": 0
@@ -20,13 +20,15 @@
       "supportsTablet": true
     },
     "android": {
+      "package" : "com.diegopineda1998.filmx",
+      "versionCode" : 1,
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#FFFFFF"
+        "foregroundImage": "./src/assets/filmx-icon.png",
+        "backgroundColor": "#000000"
       }
     },
     "web": {
-      "favicon": "./assets/favicon.png"
+      "favicon": "./src/assets/filmx-favicon.png"
     }
   }
 }
